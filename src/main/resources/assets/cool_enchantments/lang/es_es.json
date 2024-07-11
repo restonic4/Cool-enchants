@@ -1,0 +1,18 @@
+{
+  "enchantment.cool_enchantments.double_jump": "Doble salto",
+  "enchantment.cool_enchantments.double_jump.desc": "Te permite hacer saltos extras en mitad del aire.",
+
+  "enchantment.cool_enchantments.dash": "Dash",
+  "enchantment.cool_enchantments.dash.desc": "Te permite dashear en el aire.",
+
+  "key.category.cool_enchantments.tab": "Cool enchantments",
+  "key.cool_enchantments.dash": "Dash",
+
+  "effect.cool_enchantments.combat_mode": "En combate",
+
+  "enchantment.cool_enchantments.nourishment": "Nutrición",
+  "enchantment.cool_enchantments.nourishment.desc": "Tardas mas en gastar comida.",
+
+  "enchantment.cool_enchantments.smelting_edge": "Filo abrasador",
+  "enchantment.cool_enchantments.smelting_edge.desc": "Derrite automáticamente los minerales extraídos en lingotes."
+}

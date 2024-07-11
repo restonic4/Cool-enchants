@@ -1,0 +1,18 @@
+{
+  "enchantment.cool_enchantments.double_jump": "Double jump",
+  "enchantment.cool_enchantments.double_jump.desc": "Allows you to jump in mid-air.",
+
+  "enchantment.cool_enchantments.dash": "Dash",
+  "enchantment.cool_enchantments.dash.desc": "Allows you to dash.",
+
+  "enchantment.cool_enchantments.nourishment": "Nourishment",
+  "enchantment.cool_enchantments.nourishment.desc": "Slows down hunger depletion.",
+
+  "enchantment.cool_enchantments.smelting_edge": "Smelting edge",
+  "enchantment.cool_enchantments.smelting_edge.desc": "Automatically smelts mined ores into ingots.",
+
+  "key.category.cool_enchantments.tab": "Cool enchantments",
+  "key.cool_enchantments.dash": "Dash",
+
+  "effect.cool_enchantments.combat_mode": "In combat"
+}

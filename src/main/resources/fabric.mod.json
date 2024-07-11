@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "cool_enchants",
+  "version": "${version}",
+  "name": "CoolEnchants",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/marco/CoolEnchants"
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "me.restonic4.cool_enchants.client.CoolEnchantsClient"
+    ],
+    "main": [
+      "me.restonic4.cool_enchants.CoolEnchants"
+    ]
+  },
+  "mixins": [
+    "cool_enchants.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
