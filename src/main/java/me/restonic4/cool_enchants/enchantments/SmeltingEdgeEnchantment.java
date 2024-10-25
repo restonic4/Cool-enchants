@@ -22,6 +22,8 @@ public class SmeltingEdgeEnchantment extends Enchantment {
     private static final Map<Block, Item> SMELTED_ITEMS = new HashMap<>();
 
     static {
+        SMELTED_ITEMS.put(Blocks.STONE, Items.STONE);
+        SMELTED_ITEMS.put(Blocks.COBBLESTONE, Items.STONE);
         SMELTED_ITEMS.put(Blocks.IRON_ORE, Items.IRON_INGOT);
         SMELTED_ITEMS.put(Blocks.DEEPSLATE_IRON_ORE, Items.IRON_INGOT);
         SMELTED_ITEMS.put(Blocks.GOLD_ORE, Items.GOLD_INGOT);
