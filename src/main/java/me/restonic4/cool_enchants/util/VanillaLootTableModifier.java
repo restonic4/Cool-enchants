@@ -38,7 +38,7 @@ public class VanillaLootTableModifier {
 
         LootTableEvents.REPLACE.register((resourceManager, lootManager, id, original, source) -> {
             if(DESERT_WELL.equals(id)) {
-                List<LootPoolEntryContainer> entries = new ArrayList<>(Arrays.asList(original.pools[0].entries));
+                List<LootPoolEntryContainer> entries = original.pools.get(0).entries;
 
                 entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(dash)).build());
                 entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(doubleJump1)).build());
@@ -49,7 +49,7 @@ public class VanillaLootTableModifier {
             }
 
             if(DESERT_PYRAMID.equals(id)) {
-                List<LootPoolEntryContainer> entries = new ArrayList<>(Arrays.asList(original.pools[0].entries));
+                List<LootPoolEntryContainer> entries = original.pools.get(0).entries;
 
                 entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(dash)).build());
                 entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(doubleJump1)).build());
@@ -60,7 +60,7 @@ public class VanillaLootTableModifier {
             }
 
             if(OCEAN_RUIN_COLD.equals(id)) {
-                List<LootPoolEntryContainer> entries = new ArrayList<>(Arrays.asList(original.pools[0].entries));
+                List<LootPoolEntryContainer> entries = original.pools.get(0).entries;
 
                 entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(dash)).build());
                 entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(doubleJump1)).build());
@@ -71,7 +71,7 @@ public class VanillaLootTableModifier {
             }
 
             if(OCEAN_RUIN_WARM.equals(id)) {
-                List<LootPoolEntryContainer> entries = new ArrayList<>(Arrays.asList(original.pools[0].entries));
+                List<LootPoolEntryContainer> entries = original.pools.get(0).entries;
 
                 entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(dash)).build());
                 entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(doubleJump1)).build());
@@ -82,7 +82,7 @@ public class VanillaLootTableModifier {
             }
 
             if(TRAIL_RUINS_COMMON.equals(id)) {
-                List<LootPoolEntryContainer> entries = new ArrayList<>(Arrays.asList(original.pools[0].entries));
+                List<LootPoolEntryContainer> entries = original.pools.get(0).entries;
 
                 entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(dash)).build());
                 entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(doubleJump1)).build());
@@ -93,7 +93,7 @@ public class VanillaLootTableModifier {
             }
 
             if(TRAIL_RUINS_RARE.equals(id)) {
-                List<LootPoolEntryContainer> entries = new ArrayList<>(Arrays.asList(original.pools[0].entries));
+                List<LootPoolEntryContainer> entries = original.pools.get(0).entries;
 
                 entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(dash)).build());
                 entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(doubleJump1)).build());
