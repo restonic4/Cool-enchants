@@ -1,6 +1,8 @@
 package me.restonic4.cool_enchants.util;
 
+import me.restonic4.cool_enchants.registries.EnchantmentsManager;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.resources.ResourceLocation;
@@ -11,10 +13,11 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntry;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
-import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.functions.SetNbtFunction;
+import net.minecraft.world.level.storage.loot.functions.*;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
+import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.NumberProviders;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.ArrayList;
@@ -32,72 +35,68 @@ public class VanillaLootTableModifier {
     public static final ResourceLocation TRAIL_RUINS_RARE = new ResourceLocation("minecraft", "archaeology/trail_ruins_rare");
 
     public static void modify() {
-        CompoundTag dash = createEnchantedBookCompoundTag(new ResourceLocation(MOD_ID, "dash"), 1);
-        CompoundTag doubleJump1 = createEnchantedBookCompoundTag(new ResourceLocation(MOD_ID, "double_jump"), 1);
-        CompoundTag nourishment = createEnchantedBookCompoundTag(new ResourceLocation(MOD_ID, "nourishment"), 1);
-
         LootTableEvents.REPLACE.register((resourceManager, lootManager, id, original, source) -> {
             if(DESERT_WELL.equals(id)) {
-                List<LootPoolEntryContainer> entries = original.pools.get(0).entries;
+                List<LootPoolEntryContainer> entries = new ArrayList<>(original.pools.get(0).entries);
 
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(dash)).build());
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(doubleJump1)).build());
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(nourishment)).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.DASH_ENCHANTMENT, UniformGenerator.between(1,1))).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.DOUBLE_JUMP_ENCHANTMENT, UniformGenerator.between(1,1))).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.NOURISHMENT_ENCHANTMENT, UniformGenerator.between(1,1))).build());
 
                 LootPool.Builder pool = LootPool.lootPool().with(entries);
                 return LootTable.lootTable().withPool(pool).build();
             }
 
             if(DESERT_PYRAMID.equals(id)) {
-                List<LootPoolEntryContainer> entries = original.pools.get(0).entries;
+                List<LootPoolEntryContainer> entries = new ArrayList<>(original.pools.get(0).entries);
 
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(dash)).build());
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(doubleJump1)).build());
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(nourishment)).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.DASH_ENCHANTMENT, UniformGenerator.between(1,1))).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.DOUBLE_JUMP_ENCHANTMENT, UniformGenerator.between(1,1))).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.NOURISHMENT_ENCHANTMENT, UniformGenerator.between(1,1))).build());
 
                 LootPool.Builder pool = LootPool.lootPool().with(entries);
                 return LootTable.lootTable().withPool(pool).build();
             }
 
             if(OCEAN_RUIN_COLD.equals(id)) {
-                List<LootPoolEntryContainer> entries = original.pools.get(0).entries;
+                List<LootPoolEntryContainer> entries = new ArrayList<>(original.pools.get(0).entries);
 
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(dash)).build());
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(doubleJump1)).build());
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(nourishment)).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.DASH_ENCHANTMENT, UniformGenerator.between(1,1))).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.DOUBLE_JUMP_ENCHANTMENT, UniformGenerator.between(1,1))).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.NOURISHMENT_ENCHANTMENT, UniformGenerator.between(1,1))).build());
 
                 LootPool.Builder pool = LootPool.lootPool().with(entries);
                 return LootTable.lootTable().withPool(pool).build();
             }
 
             if(OCEAN_RUIN_WARM.equals(id)) {
-                List<LootPoolEntryContainer> entries = original.pools.get(0).entries;
+                List<LootPoolEntryContainer> entries = new ArrayList<>(original.pools.get(0).entries);
 
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(dash)).build());
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(doubleJump1)).build());
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(nourishment)).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.DASH_ENCHANTMENT, UniformGenerator.between(1,1))).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.DOUBLE_JUMP_ENCHANTMENT, UniformGenerator.between(1,1))).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.NOURISHMENT_ENCHANTMENT, UniformGenerator.between(1,1))).build());
 
                 LootPool.Builder pool = LootPool.lootPool().with(entries);
                 return LootTable.lootTable().withPool(pool).build();
             }
 
             if(TRAIL_RUINS_COMMON.equals(id)) {
-                List<LootPoolEntryContainer> entries = original.pools.get(0).entries;
+                List<LootPoolEntryContainer> entries = new ArrayList<>(original.pools.get(0).entries);
 
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(dash)).build());
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(doubleJump1)).build());
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(nourishment)).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.DASH_ENCHANTMENT, UniformGenerator.between(1,1))).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.DOUBLE_JUMP_ENCHANTMENT, UniformGenerator.between(1,1))).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.NOURISHMENT_ENCHANTMENT, UniformGenerator.between(1,1))).build());
 
                 LootPool.Builder pool = LootPool.lootPool().with(entries);
                 return LootTable.lootTable().withPool(pool).build();
             }
 
             if(TRAIL_RUINS_RARE.equals(id)) {
-                List<LootPoolEntryContainer> entries = original.pools.get(0).entries;
+                List<LootPoolEntryContainer> entries = new ArrayList<>(original.pools.get(0).entries);
 
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(dash)).build());
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(doubleJump1)).build());
-                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(SetNbtFunction.setTag(nourishment)).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.DASH_ENCHANTMENT, UniformGenerator.between(1,1))).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.DOUBLE_JUMP_ENCHANTMENT, UniformGenerator.between(1,1))).build());
+                entries.add(LootItem.lootTableItem(Items.ENCHANTED_BOOK).apply(new SetEnchantmentsFunction.Builder().withEnchantment(EnchantmentsManager.NOURISHMENT_ENCHANTMENT, UniformGenerator.between(1,1))).build());
 
                 LootPool.Builder pool = LootPool.lootPool().with(entries);
                 return LootTable.lootTable().withPool(pool).build();
