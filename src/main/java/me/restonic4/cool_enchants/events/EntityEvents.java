@@ -22,7 +22,7 @@ public class EntityEvents {
             if (entity instanceof Player) {
                 Player targetPlayer = (Player) entity;
 
-                MobEffectInstance effectInstance = new MobEffectInstance(EffectsManager.COMBAT_MODE, 60 * 20, 0);
+                MobEffectInstance effectInstance = new MobEffectInstance(EffectsManager.COMBAT_MODE, 60 * 20, 0, false, false, false);
 
                 player.addEffect(effectInstance);
                 targetPlayer.addEffect(effectInstance);
